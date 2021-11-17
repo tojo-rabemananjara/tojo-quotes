@@ -9,7 +9,7 @@ submitButton.addEventListener('click', () => {
     method: 'POST',
   })
   .then(response => response.json())
-  .then(({quote}) => {
+  .then(({ quote }) => {
     const newQuote = document.createElement('div');
     newQuote.innerHTML = `
     <h3>Your quote was added!</h3>
