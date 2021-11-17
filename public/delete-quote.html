@@ -2,10 +2,10 @@
 
 <html lang="en">
 <head>
-  <title></title>
+  <title>Quote API</title>
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon"ç href="favicon.ico">
 </head>
 <body>
   <h1>Quote API</h1>
@@ -15,20 +15,17 @@
     <a href="update-quote.html">Update a Quote</a>
     <a href="delete-quote.html">Delete a Quote</a>
   </nav>
-  <h2>Get Quotes</h2>
-  <div class="request-buttons">
-    <div>
-      <button id="fetch-random">Fetch a Random Quote</button>
-      <button id="fetch-quotes">Fetch all Quotes</button>
-    </div>
-    <div>
-      <input id="author" value="">
-      <button id="fetch-by-author">Fetch by Author</button>
-    </div>
+  <h2>Delete a Quote</h2>
+  <div class="inputs">
+    <label for="id">Quote id of quote to delete:</label>
+    <input id="id" value="">
   </div>
-  <div id="quote-container">
+  <div>
+    <button id="submit-quote">Delete Quote</button>
+  </div>
+  <div id="deleted-quote">
     
   </div>
-  <script src="script.js"></script>
+  <script src="delete-quote.js"></script>
 </body>
 </html>

@@ -1,49 +1,16 @@
 const express = require('express');
-const morgan = require('morgan');
 const app = express();
+const quoteRouter = require('./getQuoteRouter')
+let { quotes } = require('./data');
+const { getRandomElement, generateId } = require('./utils');
 
-const { quotes } = require('./data');
-const { getRandomElement } = require('./utils');
-
-//whatever the environment variable PORT is or 3000 if nothing is there
 const PORT = process.env.PORT || 4001;
 
 app.use(express.static('public'));
 
-
-app.get('/api/quotes/random', (req, res) => {
-  res.send({
-    quote: getRandomElement(quotes)
-  });
-});
-
-app.get('/api/quotes', (req, res) => {
-  if (req.query.person !== undefined) {
-    const quotesByPerson = quotes.filter(quote => quote.person === req.query.person);
-    res.send({
-      quotes: quotesByPerson
-    });
-  } else {
-    res.send({
-      quotes: quotes
-    });
-  }
-});
-
-app.post('/api/quotes', (req, res) => {
-  const newQuote = {
-    quote: req.query.quote,
-    person: req.query.person
-  };
-  if (newQuote.quote && newQuote.person) {
-    quotes.push(newQuote);
-    res.send({ quote: newQuote });
-  } else {
-    res.status(400).send();
-  }
-});
-
-//Set server to listen to PORT variable
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}.`);
-});
+    console.log('Server is listening on port ' + PORT);
+})
+
+// Mount the getRandomQuote router
+app.use('/api/quotes', quoteRouter);
