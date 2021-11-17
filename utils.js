@@ -5,6 +5,7 @@ const getRandomElement = arr => {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+//generate an ID on creation of quote
 const generateId = arr => {
   let id = 0;
 
@@ -15,6 +16,7 @@ const generateId = arr => {
   return id;
 }
 
+//gets quotes index by quote id
 const getIndexById = (id, arr) => {
   return arr.findIndex((quote) => {
     // return the index if the there is a match 

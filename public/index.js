@@ -36,6 +36,7 @@ const renderQuotes = (quotes = []) => {
 fetchAllButton.addEventListener('click', () => {
   fetch('/api/quotes')
   .then(response => {
+    console.log(response)
     if (response.ok) {
       return response.json();
     } else {
@@ -50,6 +51,7 @@ fetchAllButton.addEventListener('click', () => {
 fetchRandomButton.addEventListener('click', () => {
   fetch('/api/quotes/random')
   .then(response => {
+    console.log(response)
     if (response.ok) {
       return response.json();
     } else {
@@ -65,6 +67,7 @@ fetchByAuthorButton.addEventListener('click', () => {
   const author = document.getElementById('author').value;
   fetch(`/api/quotes?person=${author}`)
   .then(response => {
+    console.log(response)
     if (response.ok) {
       return response.json();
     } else {

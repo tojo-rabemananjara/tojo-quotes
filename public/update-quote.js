@@ -7,9 +7,11 @@ submitButton.addEventListener('click', () => {
   const quoteId = document.getElementById('id').value;
 
   fetch(`/api/quotes/${quoteId}?quote=${quote}&person=${person}`, {method: 'PUT'})
-    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      return response.json()
+    })
     .then(({ quote }) => {
-      console.log(quote)
       const updatedQuote = document.createElement('div');
       updatedQuote.innerHTML = `
     <h3>Your quote was updated!</h3>

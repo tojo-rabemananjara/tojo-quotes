@@ -8,7 +8,10 @@ submitButton.addEventListener('click', () => {
   fetch(`/api/quotes?quote=${quote}&person=${person}`, {
     method: 'POST',
   })
-  .then(response => response.json())
+  .then(response => {
+    console.log(response)
+    return response.json()
+  })
   .then(({ quote }) => {
     const newQuote = document.createElement('div');
     newQuote.innerHTML = `
