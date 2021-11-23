@@ -1,7 +1,7 @@
 //Use Express back end web application framework for Node.js
 const express = require('express');
 const app = express();
-//Import file that actually handles get,post,put,delete requests at endpoint
+//Import file that actually handles get,post,put,delete requests at endpoints
 const quoteRouter = require('./getQuoteRouter')
 
 let { quotes } = require('./data');

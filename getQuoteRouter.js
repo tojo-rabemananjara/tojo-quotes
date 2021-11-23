@@ -1,5 +1,8 @@
+//Use Express back end web application framework for Node.js
 const express = require('express');
+//Use express.Router() modular mountable route handlers.
 const quoteRouter = express.Router();
+
 const { quotes } = require('./data');
 const { getRandomElement, generateId, getIndexById } = require('./utils');
 const { response, query } = require('express');
@@ -79,4 +82,7 @@ quoteRouter.delete('/:id', (req, res) => {
   }
 })
 
+
 module.exports = quoteRouter;
+
+
